@@ -1,0 +1,57 @@
+/* Shared preview card stylesheet */
+@import url('../colors_and_type.css');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--fs-body-m);
+}
+
+.card {
+  padding: 20px 24px;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 10px;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 14px;
+  letter-spacing: 1px;
+}
+
+.row { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.col { display: flex; flex-direction: column; gap: 4px; }
+
+.swatch {
+  width: 88px;
+  height: 56px;
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 0 var(--ink);
+  display: block;
+}
+
+.swatch-label {
+  font-family: var(--font-display);
+  font-size: 8px;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-top: 6px;
+}
+.swatch-hex {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.mono { font-family: var(--font-body); }
+.disp { font-family: var(--font-display); text-transform: uppercase; }
+.stick { font-family: var(--font-sticker); }

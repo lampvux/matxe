@@ -1,0 +1,208 @@
+/* =========================================================
+   BIKEWATCH '99 — Design Tokens
+   Game Boy DMG surfaces + GeoCities accents + pixel type
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Silkscreen:wght@400;700&display=swap');
+
+:root {
+  /* ---------- DMG surface palette (the 4 greens) ---------- */
+  --dmg-lightest: #e0f8d0;   /* pale mint — paper-equivalent on game surfaces */
+  --dmg-light:    #88c070;   /* mid-light green — primary surface bg */
+  --dmg-dark:     #346856;   /* mid-dark — borders, secondary type */
+  --dmg-darkest:  #081820;   /* near-black green — primary ink */
+
+  /* ---------- Manual / paper neutrals ---------- */
+  --paper:        #f4ecd8;   /* manual cream */
+  --paper-shade:  #d9cdb0;   /* dithered shadow base */
+  --ink:          #1a1410;   /* warm black */
+  --ink-soft:     #5a4a36;   /* faded sharpie */
+
+  /* ---------- GeoCities accent palette (CGA / web-safe loud) ---------- */
+  --hot-magenta:  #ff00aa;   /* alarm, "STOLEN!" */
+  --electric-cyan:#00e5ff;   /* links, hover, sticker fills */
+  --sunshine:     #ffd400;   /* highlights, score, "NEW!" tags */
+  --cherry:       #e53935;   /* danger, blink */
+  --lime-zap:     #b7ff00;   /* success / bike-recovered */
+  --grape:        #8a2be2;   /* secondary accent */
+
+  /* ---------- Semantic ---------- */
+  --bg:           var(--paper);
+  --bg-alt:       var(--dmg-lightest);
+  --fg:           var(--ink);
+  --fg-soft:      var(--ink-soft);
+  --border:       var(--ink);
+  --link:         var(--grape);
+  --link-visited: var(--cherry);
+  --link-hover:   var(--hot-magenta);
+
+  --danger:       var(--cherry);
+  --warning:      var(--sunshine);
+  --success:      var(--lime-zap);
+  --info:         var(--electric-cyan);
+
+  /* ---------- Type families ---------- */
+  --font-display: 'Press Start 2P', 'Courier New', monospace;
+  --font-body:    'VT323', 'Courier New', monospace;
+  --font-sticker: 'Silkscreen', 'Press Start 2P', monospace;
+
+  /* ---------- Type scale (pixel-snapped) ---------- */
+  --fs-display-xl: 32px;  /* hero headline */
+  --fs-display-l:  24px;  /* page title */
+  --fs-display-m:  16px;  /* section title */
+  --fs-display-s:  12px;  /* button / micro headline */
+
+  --fs-body-l:     24px;  /* large body */
+  --fs-body-m:     20px;  /* default body */
+  --fs-body-s:     16px;  /* caption / fine print */
+
+  --lh-display:    1.1;
+  --lh-body:       1.4;
+
+  /* ---------- Spacing (4px grid) ---------- */
+  --sp-0: 0;
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-7: 28px;
+  --sp-8: 32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+
+  /* ---------- Borders ---------- */
+  --bw-1: 2px;       /* default */
+  --bw-2: 4px;       /* loud / focus */
+
+  /* ---------- Hard shadows (no blur — period-correct) ---------- */
+  --shadow-block:   4px 4px 0 0 var(--ink);
+  --shadow-block-l: 6px 6px 0 0 var(--ink);
+  --shadow-magenta: 4px 4px 0 0 var(--hot-magenta);
+  --shadow-cyan:    4px 4px 0 0 var(--electric-cyan);
+
+  /* Win98-style bevel pair */
+  --bevel-out:
+    inset 2px 2px 0 0 #ffffff,
+    inset -2px -2px 0 0 var(--ink);
+  --bevel-in:
+    inset -2px -2px 0 0 #ffffff,
+    inset 2px 2px 0 0 var(--ink);
+
+  /* ---------- Misc ---------- */
+  --scanline-opacity: 0.18;
+}
+
+/* =========================================================
+   Base element styles
+   ========================================================= */
+
+html {
+  font-family: var(--font-body);
+  font-size: var(--fs-body-m);
+  line-height: var(--lh-body);
+  color: var(--fg);
+  background: var(--bg);
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: none;
+  font-smooth: never;
+  image-rendering: pixelated;
+}
+
+body { margin: 0; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: var(--lh-display);
+  letter-spacing: 0;
+  margin: 0 0 var(--sp-4);
+  color: var(--fg);
+}
+h1 { font-size: var(--fs-display-xl); }
+h2 { font-size: var(--fs-display-l); }
+h3 { font-size: var(--fs-display-m); }
+h4 { font-size: var(--fs-display-s); }
+
+p { margin: 0 0 var(--sp-4); }
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 2px;
+}
+a:visited { color: var(--link-visited); }
+a:hover   { color: var(--link-hover); background: var(--sunshine); }
+
+code, kbd, samp {
+  font-family: var(--font-body);
+  background: var(--dmg-darkest);
+  color: var(--dmg-lightest);
+  padding: 1px 4px;
+}
+
+hr {
+  border: 0;
+  border-top: 2px dashed var(--ink);
+  margin: var(--sp-6) 0;
+}
+
+::selection { background: var(--sunshine); color: var(--ink); }
+
+/* =========================================================
+   Reusable building blocks
+   ========================================================= */
+
+.bw-card {
+  background: var(--paper);
+  border: var(--bw-1) solid var(--ink);
+  box-shadow: var(--shadow-block);
+  padding: var(--sp-4);
+}
+
+.bw-button {
+  font-family: var(--font-display);
+  font-size: var(--fs-display-s);
+  text-transform: uppercase;
+  background: var(--sunshine);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  padding: 10px 14px;
+  cursor: pointer;
+  box-shadow: var(--shadow-block);
+  transition: none;
+}
+.bw-button:hover  { background: var(--electric-cyan); }
+.bw-button:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 0 var(--ink); }
+
+.bw-scanlines {
+  position: relative;
+}
+.bw-scanlines::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.18) 0,
+    rgba(0,0,0,0.18) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: multiply;
+}
+
+@keyframes bw-blink { 50% { opacity: 0; } }
+.bw-blink { animation: bw-blink 1s steps(2, start) infinite; }
+
+@keyframes bw-marquee { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
+.bw-marquee {
+  display: inline-block;
+  white-space: nowrap;
+  animation: bw-marquee 18s linear infinite;
+}
