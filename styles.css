@@ -242,6 +242,12 @@ body {
   font-family: var(--font-display); font-size: 10px;
   align-items: center;
   flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: #2a2418;
+  padding: 8px 4px;
+  border-bottom: 2px solid var(--ink);
 }
 .switcher button {
   background: var(--paper); color: var(--ink);
