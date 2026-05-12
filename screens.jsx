@@ -174,7 +174,7 @@ const WatchScreen = ({ onLose }) => {
           >
             !! ALARM
           </Button>
-          <Button variant="secondary" onClick={() => onLose(time)}>
+          <Button variant="secondary" onClick={() => { AudioEngine.gameOver(); onLose(time); }}>
             GIVE UP
           </Button>
         </div>

@@ -21,8 +21,10 @@ const AudioEngine = (() => {
     G4: note(67), A4: note(69), B4: note(71),
     C5: note(72), D5: note(74), E5: note(76), F5: note(77),
     G5: note(79), A5: note(81), B5: note(83),
+    C2: note(36), Eb2: note(39), G2: note(43),
     Eb3: note(51), Eb4: note(63),
-    Bb4: note(70),
+    Bb3: note(58), Bb4: note(70),
+    F3: note(53),
   }
 
   /* ---------- BGM Patterns ---------- */
@@ -146,10 +148,27 @@ const AudioEngine = (() => {
   function sfxGameOver() {
     if (isMuted) return
     const t = now()
-    playTone(NOTES.C4, 0.25, 'square', 0.3, NOTES.G3, t)
-    playTone(NOTES.G3, 0.25, 'square', 0.3, NOTES.Eb3, t + 0.25)
-    playTone(NOTES.Eb3, 0.35, 'square', 0.3, NOTES.C3, t + 0.50)
-    playTone(NOTES.C3, 0.6,  'triangle', 0.35, null, t + 0.85)
+
+    // 1. Noise "crash" — the moment of defeat
+    playNoise(0.25, 0.35, t)
+
+    // 2. Descending square-wave melody (classic game over feel)
+    // Voice 1: high descending line
+    playTone(NOTES.C5, 0.18, 'square', 0.22, NOTES.G4, t + 0.05)
+    playTone(NOTES.G4, 0.18, 'square', 0.22, NOTES.Eb4, t + 0.25)
+    playTone(NOTES.Eb4, 0.18, 'square', 0.22, NOTES.C4, t + 0.45)
+    playTone(NOTES.C4, 0.18, 'square', 0.22, NOTES.G3, t + 0.65)
+    playTone(NOTES.G3, 0.25, 'square', 0.22, NOTES.Eb3, t + 0.85)
+    playTone(NOTES.Eb3, 0.35, 'square', 0.22, NOTES.C3, t + 1.10)
+
+    // 3. Bass "womp" on triangle — the gut punch
+    playTone(NOTES.C3, 0.40, 'triangle', 0.40, null, t + 0.05)
+    playTone(NOTES.G2, 0.40, 'triangle', 0.40, null, t + 0.30)
+    playTone(NOTES.Eb2, 0.50, 'triangle', 0.40, null, t + 0.60)
+    playTone(NOTES.C2, 0.80, 'triangle', 0.45, null, t + 1.00)
+
+    // 4. Dissonant "brzzt" at the very end (sawtooth slide)
+    playTone(NOTES.F3, 0.30, 'sawtooth', 0.15, NOTES.C3, t + 1.35)
   }
 
   function sfxStart() {
