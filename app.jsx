@@ -17,7 +17,7 @@ const App = () => {
   }, [view]);
 
   return (
-    <div>
+    <div className="app-layout">
       <div className="switcher">
         <button className={view==='title'? 'active':''} onClick={() => { AudioEngine.click(); setView('title'); }}>TITLE</button>
         <button className={view==='watch'? 'active':''} onClick={() => { AudioEngine.click(); setView('watch'); }}>WATCH HUD</button>
@@ -26,16 +26,18 @@ const App = () => {
         <SoundToggle />
       </div>
 
-      {view === 'marketing'
-        ? <MarketingScreen/>
-        : (
-          <Frame>
-            {view === 'title'  && <TitleScreen onStart={() => setView('watch')}/>}
-            {view === 'watch'  && <WatchScreen onLose={(t) => { setFinalTime(t); setView('over'); }}/>}
-            {view === 'over'   && <OverScreen finalTime={finalTime} onRetry={() => setView('watch')} onMenu={() => setView('title')}/>}
-          </Frame>
-        )
-      }
+      <div className="app-content">
+        {view === 'marketing'
+          ? <MarketingScreen/>
+          : (
+            <Frame>
+              {view === 'title'  && <TitleScreen onStart={() => setView('watch')}/>}
+              {view === 'watch'  && <WatchScreen onLose={(t) => { setFinalTime(t); setView('over'); }}/>}
+              {view === 'over'   && <OverScreen finalTime={finalTime} onRetry={() => setView('watch')} onMenu={() => setView('title')}/>}
+            </Frame>
+          )
+        }
+      </div>
     </div>
   );
 };
