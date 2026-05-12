@@ -320,6 +320,109 @@ const MarketingScreen = () => (
         attention span.
       </p>
 
+      <h2>★ CONTACT</h2>
+      <div
+        style={{
+          background: "var(--bg-alt)",
+          border: "2px solid var(--ink)",
+          boxShadow: "4px 4px 0 0 var(--ink)",
+          padding: "16px",
+          display: "flex",
+          flexDirection: "column",
+          gap: 10,
+          fontFamily: "var(--font-body)",
+          fontSize: 18,
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          <Icon name="bell" size={24} />
+          <span style={{ fontFamily: "var(--font-display)", fontSize: 11 }}>
+            GOT A BUG? WANT TO SAY HI?
+          </span>
+        </div>
+        <div>
+          shoot an email to:{" "}
+          <a
+            href="mailto:tunglam195@gmail.com"
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: 11,
+              color: "var(--grape)",
+              background: "var(--sunshine)",
+              padding: "2px 6px",
+              border: "2px solid var(--ink)",
+              textDecoration: "none",
+              display: "inline-block",
+            }}
+          >
+            tunglam195@gmail.com
+          </a>
+        </div>
+        <div
+          style={{
+            fontSize: 16,
+            color: "var(--ink-soft)",
+            borderTop: "2px dashed var(--ink)",
+            paddingTop: 8,
+          }}
+        >
+          also accepting high-score screenshots, fan art, and conspiracy
+          theories about the thief.
+        </div>
+      </div>
+
+      <h2>★ GUESTBOOK</h2>
+      <div
+        style={{
+          background: "var(--paper)",
+          border: "2px solid var(--ink)",
+          padding: "12px",
+          fontFamily: "var(--font-body)",
+          fontSize: 18,
+          color: "var(--ink-soft)",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            gap: 8,
+            alignItems: "center",
+            marginBottom: 8,
+          }}
+        >
+          <Icon name="heart" size={20} />
+          <span style={{ fontFamily: "var(--font-display)", fontSize: 10 }}>
+            LATEST ENTRIES
+          </span>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 6,
+            fontSize: 16,
+          }}
+        >
+          <div>
+            <span style={{ color: "var(--cherry)" }}>GORDO_88:</span> this game
+            changed my life. i now watch my bike 24/7.
+          </div>
+          <div>
+            <span style={{ color: "var(--electric-cyan)" }}>RAD_TINA:</span>{" "}
+            beat my score or you're a coward !!!
+          </div>
+          <div>
+            <span style={{ color: "var(--grape)" }}>PXLBOY:</span>{" "}
+            the thief is actually a metaphor for capitalism. think about it.
+          </div>
+        </div>
+        <div style={{ marginTop: 10, textAlign: "center" }}>
+          <Sticker color="sunshine" rotate={-2}>
+            SIGN IT !!
+          </Sticker>
+        </div>
+      </div>
+
       <hr />
       <div className="visitor">VISITORS: 00,142,889</div>
       <div className="ring">

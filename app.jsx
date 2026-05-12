@@ -5,6 +5,17 @@ const App = () => {
   const [view, setView] = useState('title');     // title | watch | over | marketing
   const [finalTime, setFinalTime] = useState(0);
 
+  // Track virtual page views in GA4 when switching screens
+  React.useEffect(() => {
+    if (typeof gtag === 'function') {
+      gtag('event', 'page_view', {
+        page_title: 'BIKEWATCH 99 — ' + view.toUpperCase(),
+        page_location: window.location.href,
+        screen_name: view,
+      });
+    }
+  }, [view]);
+
   return (
     <div>
       <div className="switcher">
