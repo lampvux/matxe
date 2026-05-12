@@ -240,6 +240,8 @@ body {
 .switcher {
   display: flex; gap: 6px; margin-bottom: 12px;
   font-family: var(--font-display); font-size: 10px;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .switcher button {
   background: var(--paper); color: var(--ink);

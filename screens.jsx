@@ -22,7 +22,7 @@ const TitleScreen = ({ onStart }) => (
         </Sticker>
       </div>
       <div className="sub">don't look away. ever.</div>
-      <div className="start blink-hard" onClick={onStart}>
+      <div className="start blink-hard" onClick={() => { AudioEngine.start(); onStart(); }}>
         ▶ PRESS START
       </div>
       <div
@@ -63,6 +63,7 @@ const WatchScreen = ({ onLose }) => {
       if (thiefX < 0 && Math.random() < 0.5) {
         setWarning(true)
         setBlinkSticker(true)
+        AudioEngine.thiefWarn()
       }
     }, 4000)
     return () => clearInterval(id)
@@ -76,6 +77,7 @@ const WatchScreen = ({ onLose }) => {
         const nx = x + 4
         setPanic((p) => Math.min(100, p + 6))
         if (nx >= 60) {
+          AudioEngine.gameOver()
           onLose(time)
         }
         return nx
@@ -85,6 +87,7 @@ const WatchScreen = ({ onLose }) => {
   }, [warning, time, onLose])
 
   const honk = () => {
+    AudioEngine.honk()
     if (warning) {
       setThiefX(-15)
       setWarning(false)
@@ -162,6 +165,7 @@ const WatchScreen = ({ onLose }) => {
           <Button
             variant="danger"
             onClick={() => {
+              AudioEngine.alarm()
               setPanic(100)
               setTimeout(() => setWarning(false), 50)
               setThiefX(-20)
@@ -231,8 +235,8 @@ const OverScreen = ({ onRetry, onMenu, finalTime }) => {
           </div>
         </div>
         <div className="actions">
-          <button onClick={onRetry}>▶ TRY AGAIN</button>
-          <button onClick={onMenu} className="ghost">
+          <button onClick={() => { AudioEngine.start(); onRetry(); }}>▶ TRY AGAIN</button>
+          <button onClick={() => { AudioEngine.click(); onMenu(); }} className="ghost">
             MAIN MENU
           </button>
         </div>

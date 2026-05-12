@@ -8,10 +8,11 @@ const App = () => {
   return (
     <div>
       <div className="switcher">
-        <button className={view==='title'? 'active':''} onClick={() => setView('title')}>TITLE</button>
-        <button className={view==='watch'? 'active':''} onClick={() => setView('watch')}>WATCH HUD</button>
-        <button className={view==='over'? 'active':''} onClick={() => setView('over')}>GAME OVER</button>
-        <button className={view==='marketing'? 'active':''} onClick={() => setView('marketing')}>MARKETING SITE</button>
+        <button className={view==='title'? 'active':''} onClick={() => { AudioEngine.click(); setView('title'); }}>TITLE</button>
+        <button className={view==='watch'? 'active':''} onClick={() => { AudioEngine.click(); setView('watch'); }}>WATCH HUD</button>
+        <button className={view==='over'? 'active':''} onClick={() => { AudioEngine.click(); setView('over'); }}>GAME OVER</button>
+        <button className={view==='marketing'? 'active':''} onClick={() => { AudioEngine.click(); setView('marketing'); }}>MARKETING SITE</button>
+        <SoundToggle />
       </div>
 
       {view === 'marketing'
