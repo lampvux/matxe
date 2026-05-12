@@ -182,13 +182,20 @@ const Frame = ({ children }) => (
       </div>
     </div>
     <div className="console-row">
-      <span>
+      <span className="left-label">
         <span className="pip on"></span>POWER
       </span>
-      <span style={{ color: "var(--ink-soft)" }}>
+      <span className="center-label">
         BIKEWATCH '99 — DOT MATRIX WITH STEREO SOUND
       </span>
-      <span>► START</span>
+      <span className="right-label">
+        STEREO
+        <span className="battery">
+          <span className="battery-bar ok"></span>
+          <span className="battery-bar ok"></span>
+          <span className="battery-bar ok"></span>
+        </span>
+      </span>
     </div>
   </div>
 )
