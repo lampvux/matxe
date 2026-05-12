@@ -1,0 +1,38 @@
+{
+  "name": "BIKEWATCH '99",
+  "short_name": "BIKEWATCH",
+  "description": "A retro bike vigilance game. Keep your eyes on the prize. Don't blink. Don't look away. Just watch.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4ecd8",
+  "theme_color": "#ffd400",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["games", "entertainment"],
+  "lang": "en",
+  "screenshots": [
+    {
+      "src": "assets/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "BIKEWATCH '99 — Title Screen"
+    }
+  ]
+}
